@@ -68,7 +68,7 @@ class App extends Component {
   onPictureSubmit = () => {
     this.setState({ imageUrl: this.state.input })
 
-    fetch('http://localhost:3000/imageAPI', {
+    fetch('https://face-recognition-api-w99w.onrender.com/imageAPI', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ input: this.state.input })
@@ -76,7 +76,7 @@ class App extends Component {
       .then(response => response.json())
       .then(result => {
 
-        fetch('http://localhost:3000/image', {
+        fetch('https://face-recognition-api-w99w.onrender.com/image', {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: this.state.user.id })
@@ -90,7 +90,7 @@ class App extends Component {
         this.displayFaceBox(this.calculateFaceLocation(result));
 
       })
-      .catch(error => console.log('Unable to call Clarify API2'));
+      .catch(error => console.log('Unable to call Clarify API'));
   }
 
   onRouteChange = (route) => {
